@@ -14,18 +14,18 @@ library(here)
 ### The relationship of SES to math performance
 
 ```{r include=FALSE}
-hsb2 <- read.csv(here("Data", "hsb2.csv"))
+hsb <- read.csv(here("Data", "hsb2.csv"))
 ```
 
 Here are side-by-side boxplots of math scores by SES levels.
 
 ```{r echo=FALSE}
-hsb2$ses <- factor(hsb2$ses, 
+hsb$ses <- factor(hsb$ses, 
                    levels = c(1:3),
                    labels = c("low", "middle", "high"),
                    ordered = TRUE)
 
-boxplot(hsb2$math ~ hsb2$ses,
+boxplot(hsb$math ~ hsb$ses,
         xlab = "SES Category",
         ylab = "Math Test Score",
         main = "Math Test Scores by SES Category")
@@ -34,9 +34,9 @@ boxplot(hsb2$math ~ hsb2$ses,
 Here are the five-number summaries, means, and standard deviations.
 
 ```{r echo=FALSE}
-tapply(hsb2$math, hsb2$ses, fivenum)
-tapply(hsb2$math, hsb2$ses, mean)
-tapply(hsb2$math, hsb2$ses, sd)
+tapply(hsb$math, hsb$ses, fivenum)
+tapply(hsb$math, hsb$ses, mean)
+tapply(hsb$math, hsb$ses, sd)
 ```
 
 
